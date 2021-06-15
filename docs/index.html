@@ -1,0 +1,452 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link="#0563C1" vlink="#954F72" style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='text-align:center'><b>Microsoft Teams
+Basic Forum</b></p>
+
+<p class=MsoNormal>GitHub Repository: <a
+href="https://github.com/Ashot72/microsoft-teams-sso-forums" target="_blank">https://github.com/Ashot72/microsoft-teams-sso-forums</a></p>
+
+<p class=MsoNormal>Video Link: <a href="https://youtu.be/96qBGEBub1M"
+target="_blank">https://youtu.be/96qBGEBub1M</a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>This is a basic forum app for Microsoft Teams. It uses
+SharePoint lists as data storage. Note, the app is</p>
+
+<p class=MsoNormal>not a SharePoint SPFx app embedded in Teams. You can talk to
+the forum bot via adaptive cards and </p>
+
+<p class=MsoNormal>also search forums<span style='color:black'>'</span></span> topics
+using Teams search-based messaging extension. You can add the app to</p>
+
+<p class=MsoNormal>your <i>personal tab</i>, to a team, chat or meeting.</p>
+
+<p class=MsoNormal>For tabs in Teams, we have three different ways of
+authentication:</p>
+
+<p class=MsoNormal><i>Authenticate with a pop-up</i></p>
+
+<p class=MsoNormal><i>Authentication using silent authentication</i></p>
+
+<p class=MsoNormal><i>Authenticate using single sign-on (SSO)</i></p>
+
+<p class=MsoNormal>They all use the same OAuth 2.0 implicit grant flow.</p>
+
+<p class=MsoNormal>We have a button to login with <i>pop-up authentication</i>.
+Usually, we hide the rest of the page and let</p>
+
+<p class=MsoNormal>the user log in first and then show everything.</p>
+
+<p class=MsoNormal><i>Silent authentication</i> in Azure Active Directory (AAD)
+minimizes the number of times a user enters </p>
+
+<p class=MsoNormal>his sign in credentials by silently refreshing the
+authentication token.</p>
+
+<p class=MsoNormal><i>Single sign-on (SSO) </i>is our preferred method because
+it makes life a whole lot easier. In this scenario, </p>
+
+<p class=MsoNormal>we just ask Teams to provide us with a token, and it will do
+all the hard work for us. The single </p>
+
+<p class=MsoNormal>sign-on is almost no code but more configuration. After all,
+if a person is signed in to Teams, </p>
+
+<p class=MsoNormal>why should they have to sign in to your app again? Teams tab
+SSO allows you to automatically </p>
+
+<p class=MsoNormal>sign users to your app with the same account that they use
+in Teams. SSO comes with some </p>
+
+<p class=MsoNormal>considerations.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b><i>Enabling SSO in your Teams tab</i></b></p>
+
+<p class=MsoNormal><img border=0 width=623 height=258 id="Picture 1"
+src="index_files/image001.jpg"></p>
+
+<p class=MsoNormal>Figure 1</p>
+
+<p class=MsoNormal>First, we have to register an app in the Azure portal. I
+registered TeamsForum app.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=624 height=363 id="Picture 2"
+src="index_files/image002.jpg"></p>
+
+<p class=MsoNormal>Figure 2</p>
+
+<p class=MsoNormal>To enable SSO, we need to configure the API URI, define an
+API scope, and authorize Teams client</p>
+
+<p class=MsoNormal>applications to access your app.</p>
+
+<p class=MsoNormal>Application <i>5e3ce6c0-2b1f-4285-8d4b-&#8203;75ee78787346</i>
+is Microsoft Teams Web Client.</p>
+
+<p class=MsoNormal>Application <i>1fec8e78-bce4-4aaf-ab1b-5451cc387264 </i>is
+Microsoft Teams Mobile/Desktop Client.</p>
+
+<p class=MsoNormal>The app is hosted on <i>teams-forum.herokuapp.com</i>.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=624 height=653 id="Picture 3"
+src="index_files/image003.png"></p>
+
+<p class=MsoNormal>Figure 3</p>
+
+<p class=MsoNormal>Next, in your Teams app<span style='color:black'>'</span></span>s
+manifest, you should specify the domain where your app is hosted, the</p>
+
+<p class=MsoNormal>ID of you Azure AD app, and the API URI you defined
+previously. Actually, manifest.json entries are</p>
+
+<p class=MsoNormal>automatically generated from <i>.env</i> file when you run <i>gulp
+ngrok-serve </i>command for local development </p>
+
+<p class=MsoNormal>or <i>gulp manifest </i>to deploy the app.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=624 height=368 id="Picture 4"
+src="index_files/image004.jpg"></p>
+
+<p class=MsoNormal>Figure 4</p>
+
+<p class=MsoNormal>In app<span style='color:black'>'</span></span>s
+useTeamsToken hook we receive the token. The tab SSO feature in Microsoft Teams
+gives</p>
+
+<p class=MsoNormal>you a token, but this is just <b>an identity token that
+cannot be used as an access token </b>to call into</p>
+
+<p class=MsoNormal>the Microsoft Graph, despite we grant permissions on the Tab
+app.</p>
+
+<p class=MsoNormal><img border=0 width=624 height=417 id="Picture 5"
+src="index_files/image005.jpg"></p>
+
+<p class=MsoNormal>Figure 5</p>
+
+<p class=MsoNormal>If we inspect the token, we get from Microsoft Teams we will
+see some properties.</p>
+
+<p class=MsoNormal>For example, <i>appid </i>is the application id of issuing
+application and in this case the Microsoft Teams web application etc. We need
+to access Microsoft Graph as we work with SharePoint lists.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b><i>Exchange the Teams SSO access token for an API token using
+the on-behalf-of flow.</i></b></p>
+
+<p class=MsoNormal><img border=0 width=623 height=349 id="Picture 6"
+src="index_files/image006.jpg"></p>
+
+<p class=MsoNormal>Figure 6</p>
+
+<p class=MsoNormal>To exchange your Teams SSO token to call Microsoft Graph,
+you will need to extend your Azure AD</p>
+
+<p class=MsoNormal>app registration with a secret.</p>
+
+<p class=MsoNormal><img border=0 width=624 height=416 id="Picture 7"
+src="index_files/image007.jpg"></p>
+
+<p class=MsoNormal>Figure 7</p>
+
+<p class=MsoNormal>In our code, we need to use the <i>on-behalf-of-OAuth flow</i>.
+It is a flow that requires using your app<span style='color:black'>'</span></span>s</p>
+
+<p class=MsoNormal>secret, and which you should not do from the client. Instead,
+we should do it from code running on the</p>
+
+<p class=MsoNormal>server where we can hide the secret from users.</p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>Getting token for Microsoft Graph in a Teams tab with
+SSO.</b></p>
+
+<p class=MsoNormal>To exchange the access token, you got from the Teams SDK as
+a part of Single Sign-On,</p>
+
+<p class=MsoNormal>you should use the <i>on-behalf-of OAuth</i> flow. The Teams
+SDK is client-side. But the on-behalf-of</p>
+
+<p class=MsoNormal>flow needs to be executed server-side because of the Azure
+AD app secret that you should not</p>
+
+<p class=MsoNormal>expose to users. There are two ways to exchange the Teams
+SSO token for one to call Graph.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Exchange the token on the server and return the Graph
+token to the client.</b></p>
+
+<p class=MsoNormal>The first approach is to build an API that exchanges the
+Teams SSO token for a Graph token</p>
+
+<p class=MsoNormal>and returns it to the client. The API itself is anonymous and
+accepts the Teams SSO</p>
+
+<p class=MsoNormal>token either via the body in a POST request on the query
+string.</p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><img border=0 width=624 height=403 id="Picture 8"
+src="index_files/image008.jpg"></p>
+
+<p class=MsoNormal>Figure 8</p>
+
+<p class=MsoNormal>After completing SSO, the Teams tab calls their API to exchange
+its Teams SSO token for one</p>
+
+<p class=MsoNormal>for Graph (1). The API calls Azure AD and exchanges the
+token using the on-behalf-of flow (2).</p>
+
+<p class=MsoNormal>It then returns the token to the client (3) which uses it to
+call Microsoft Graph and retrieve data </p>
+
+<p class=MsoNormal>from Microsoft 365 (4).</p>
+
+<p class=MsoNormal>We do not use this approach in our Microsoft Teams Basic
+Forum app. We use the alternative</p>
+
+<p class=MsoNormal>approach which is coming next.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Call Graph server-side and return only the data</b></p>
+
+<p class=MsoNormal>Another way to call Microsoft Graph in a Teams tab using SSO
+is by building a secure API that</p>
+
+<p class=MsoNormal>calls the Graph and returns to the client just the data it
+needs.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=624 height=386 id="Picture 9"
+src="index_files/image009.jpg"></p>
+
+<p class=MsoNormal>Figure 9</p>
+
+<p class=MsoNormal>The basic of the setup are still the same. Your app calls
+the API with the Teams SSO</p>
+
+<p class=MsoNormal>token (1). This time, because the API is secured with Azure
+AD, before the code executes,</p>
+
+<p class=MsoNormal>the access token sent in the request will be validated by
+Azure AD. Next, the API</p>
+
+<p class=MsoNormal>calls Azure AD using the on-behalf-of flow to exchange this
+token for one for Graph (2).</p>
+
+<p class=MsoNormal>Rather than returning the token to the client, the API calls
+Graph (3) and returns to the</p>
+
+<p class=MsoNormal>client the data it received from Graph.</p>
+
+<p class=MsoNormal>The nice thing about this setup is that the API itself is secured
+with Azure AD and calls to</p>
+
+<p class=MsoNormal>Graph are implemented on the server. The access token for
+Graph, obtained using the</p>
+
+<p class=MsoNormal>on-behalf flow, never leaves your API and your client only
+gets the data it needs.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=624 height=308 id="Picture 10"
+src="index_files/image010.jpg"></p>
+
+<p class=MsoNormal>Figure 10</p>
+
+<p class=MsoNormal>From Microsoft Graph API we get OpenId permissions.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=623 height=310 id="Picture 11"
+src="index_files/image011.jpg"></p>
+
+<p class=MsoNormal>Figure 11</p>
+
+<p class=MsoNormal>Next, we check <i>Sites.Manage.All</i> Graph permission as
+we create lists, create, edit, delete list items from our Teams app.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=624 height=388 id="Picture 12"
+src="index_files/image012.jpg"></p>
+
+<p class=MsoNormal>Figure 12</p>
+
+<p class=MsoNormal>In our Graph router we get access token by exchanging and
+only return data.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=624 height=346 id="Picture 13"
+src="index_files/image013.jpg"></p>
+
+<p class=MsoNormal>Figure 13</p>
+
+<p class=MsoNormal>In <i>getByForum</i> call you that rather than returning the
+token to the client, we return the data it received from Graph.</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'><img border=0 width=624
+height=321 id="Picture 14" src="index_files/image014.jpg"></p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Figure 14</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>If you develop your app based on <i>Fluent
+UI React NorthS</i>tar themable React component library then</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>you will get you app styling out
+of the box.</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Fluent UI is a fairly themable
+component library. Theming is opt-in, allowing you to theme as much</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>or as little as needed. Themes can
+be applied to your entirely app, to specific subtrees, or to </p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>individual components.</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'><img border=0 width=623
+height=324 id="Picture 15" src="index_files/image015.jpg"></p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Figure 15</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>You can also talk to the forum bot
+via adaptive cards which are great fit for Bots.</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'><img border=0 width=624
+height=434 id="Picture 16" src="index_files/image016.jpg"></p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Figure 16</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>You can also search forums<span
+style='color:black'>'</span></span> topics via search-based messaging extension.</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>We discussed about Microsoft Teams
+tab SSO authentication, but there is not an easy way to </p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>authenticate a Microsoft bot in Teams
+or a messaging extension via SSO. Despite it you see that</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>both the bot and messaging extension
+work without a problem.</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'><img border=0 width=624
+height=323 id="Picture 17" src="index_files/image017.jpg"></p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Figure 17</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>When you run the app and navigate
+to the forum<span style='color:black'>'</span>s</span> tab, the first call is <i>checklist</i>.
+App wants to make sure </p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>that SharePoint lists exist. In
+that call we keep <i>accesstoken token</i> and <i>sharePoint site url</i> of the
+logged-on </p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>user in a session.</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'><img border=0 width=625
+height=260 id="Picture 18" src="index_files/image018.jpg"></p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Figure 18</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Both the bot and messaging extension
+get that required info from the session and make a call to get </p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>forums<span style='color:black'>'</span></span>
+or topics<span style='color:black'>'</span></span> list items. If you try to
+talk to the bot or search a topic via extension without going to </p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>the forums tab first (the access
+token may also be expired) then you will get the message <i>Please go to </i></p>
+
+<p class=MsoNormal style='margin-top:12.0pt'><i>the</i> <i>Forum</i><span
+style='color:black'>'</span></span><i>s tab first to authenticate</i>. If you
+are in the app and navigating from forums to topics page or</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>back to forums or other pages <i>exchangeForToken</i>
+function (Figure 7) never called. It is called only when </p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>you refresh the entire page or switching
+between Teams tabs.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal> </p>
+
+</div>
+
+</body>
+
+</html>

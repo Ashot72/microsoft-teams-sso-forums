@@ -5,7 +5,7 @@ user’s personal tab, to a team, chat or meeting. We use Single Sign-On (SS0) t
 Teams. 
 
 
-You can download the package from [here](https://github.com/Ashot72/microsoft-teams-sso-forums/tree/main/sharepoint/solution/forums.sppkg) and upload it to your Tenant App Catalog to run the forum.
+You can download the package from [here](https://github.com/Ashot72/microsoft-teams-sso-forums/tree/main/package/forums.sppkg) and upload it to your Tenant App Catalog to run the forum.
 
 To get started.
 ```
