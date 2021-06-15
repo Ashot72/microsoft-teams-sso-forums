@@ -1,7 +1,7 @@
 This is a basic forum app for Microsoft Teams. It uses SharePoint lists as data storage. Note, the app
-is not a SharePoint SPFX app embedded in Teams. You can talk to the forum bot via adaptive cards and 
+is not a SharePoint SPFx app embedded in Teams. You can talk to the forum bot via adaptive cards and 
 also search forums topics using Teams search-based messaging extension. The app can be added to 
-user’s personal tab, to a team, chat or meeting. We use Single Sign-On (SS0) to authenticate tabs in 
+user’s personal tab, to a team, chat or meeting. Single Sign-On (SS0) is used to authenticate tabs in 
 Teams. 
 
 
