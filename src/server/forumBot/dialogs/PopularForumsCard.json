@@ -1,0 +1,193 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.2",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "Five most popular forums.",
+            "size": "medium",
+            "weight": "bolder",
+            "horizontalAlignment": "center",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "Notify me about new features.",
+            "wrap": true
+        },
+        {
+            "type": "ImageSet",
+            "imageSize": "medium",
+            "images": [
+                {
+                    "type": "Image",
+                    "url": "${img1}",
+                    "altText": "Adobe"
+                },
+                {
+                    "type": "Image",
+                    "url": "${img2}",
+                    "altText": "Airbnb Host"
+                },
+                {
+                    "type": "Image",
+                    "url": "${img3}",
+                    "altText": "Reddit"
+                },
+                {
+                    "type": "Image",
+                    "url": "${img4}",
+                    "altText": "Ubuntu"
+                },
+                {
+                    "type": "Image",
+                    "url": "${img5}",
+                    "altText": "World of Warcraft"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.ShowCard",
+            "title": "Adobe",
+            "card": {
+                "type": "AdaptiveCard",
+                "body": [
+                    {
+                        "type": "TextBlock",
+                        "wrap": true,
+                        "text": "Adobe is a software company based in the U.S. The forum is designed to help the firms customers with any questions they have."
+                    },
+                    {
+                        "type": "Input.Text",
+                        "id": "Adobe",
+                        "isMultiline": true
+                    }
+                ],
+                "actions": [
+                    {
+                        "data": {
+                            "PopularForums": "Adobe"
+                        },
+                        "type": "Action.Submit",
+                        "title": "Notify"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Action.ShowCard",
+            "title": "Airbnb Host",
+            "card": {
+                "type": "AdaptiveCard",
+                "body": [
+                    {
+                        "type": "TextBlock",
+                        "wrap": true,
+                        "text": "This forum ranges from hilarious stories, to support, to how-to-deal with different issues on the Airbnb website. It is extremely popular and is a great community for these hosts."
+                    },
+                    {
+                        "type": "Input.Text",
+                        "id": "Airbnb Host",
+                        "isMultiline": true
+                    }
+                ],
+                "actions": [
+                    {
+                        "data": {
+                            "PopularForums": "Airbnb Host"
+                        },
+                        "type": "Action.Submit",
+                        "title": "Notify"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Action.ShowCard",
+            "title": "Reddit",
+            "card": {
+                "type": "AdaptiveCard",
+                "body": [
+                    {
+                        "type": "TextBlock",
+                        "wrap": true,
+                        "text": "Reddit is an interactive forum in a number of ways. Users post whatever they like (a story, a video, a meme) and it gets ranked by other members voting on it"
+                    },
+                    {
+                        "type": "Input.Text",
+                        "id": "Reddit",
+                        "isMultiline": true
+                    }
+                ],
+                "actions": [
+                    {
+                        "data": {
+                            "PopularForums": "Reddit"
+                        },
+                        "type": "Action.Submit",
+                        "title": "Notify"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Action.ShowCard",
+            "title": "Ubuntu",
+            "card": {
+                "type": "AdaptiveCard",
+                "body": [
+                    {
+                        "type": "TextBlock",
+                        "wrap": true,
+                        "text": "Ubuntu is an open-source product. Their forum is a way of providing users with customer support."
+                    },
+                    {
+                        "type": "Input.Text",
+                        "id": "Ubuntu",
+                        "isMultiline": true
+                    }
+                ],
+                "actions": [
+                    {
+                        "data": {
+                            "PopularForums": "Ubuntu"
+                        },
+                        "type": "Action.Submit",
+                        "title": "Notify"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Action.ShowCard",
+            "title": "World of Warcraft",
+            "card": {
+                "type": "AdaptiveCard",
+                "body": [
+                    {
+                        "type": "TextBlock",
+                        "wrap": true,
+                        "text": "When this video game was released in 2004, it gained a massive following. Even today, it still has 5.03 million players."
+                    },
+                    {
+                        "type": "Input.Text",
+                        "id": "World of Warcraft",
+                        "isMultiline": true
+                    }
+                ],
+                "actions": [
+                    {
+                        "data": {
+                            "PopularForums": "World of Warcraft"
+                        },
+                        "type": "Action.Submit",
+                        "title": "Notify"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,106 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.8/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.8",
+  "id": "953f61e0-9d22-11eb-80da-6d853f3400d4",
+  "version": "0.0.1",
+  "packageName": "forum",
+  "developer": {
+    "name": "Ashot Abrahamyan",
+    "websiteUrl": "https://teams-forum.herokuapp.com",
+    "privacyUrl": "https://teams-forum.herokuapp.com/privacy.html",
+    "termsOfUseUrl": "https://teams-forum.herokuapp.com/tou.html"
+  },
+  "name": {
+    "short": "Basic Forum",
+    "full": "Basic Forum"
+  },
+  "description": {
+    "short": "Basic Forum",
+    "full": "Microsoft Teams Basic Forum"
+  },
+  "icons": {
+    "outline": "icon-outline.png",
+    "color": "icon-color.png"
+  },
+  "accentColor": "#D85028",
+  "configurableTabs": [
+    {
+      "configurationUrl": "https://teams-forum.herokuapp.com/config?theme={theme}",
+      "canUpdateConfiguration": false,
+      "scopes": [
+        "team",
+        "groupchat"
+      ]
+    }
+  ],
+  "staticTabs": [
+    {
+      "entityId": "36960335-cafb-4f96-80ac-8303866a1626",
+      "name": "Forum",
+      "contentUrl": "https://teams-forum.herokuapp.com/forumTab/?theme={theme}",
+      "scopes": [
+        "personal"
+      ]
+    }
+  ],
+  "bots": [
+    {
+      "botId": "2da13922-9bde-4059-b6a0-3fdbd6e50036",
+      "needsChannelSelector": true,
+      "isNotificationOnly": false,
+      "scopes": [
+        "team",
+        "personal",
+        "groupchat"
+      ],
+      "commandLists": [
+        {
+          "scopes": [
+            "team",
+            "personal"
+          ],
+          "commands": [
+            {
+              "title": "Help",
+              "description": "Shows help information"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "connectors": [],
+  "composeExtensions": [
+    {
+      "botId": "2da13922-9bde-4059-b6a0-3fdbd6e50036",
+      "commands": [
+        {
+          "id": "forumMessageExtension",
+          "title": "Forum Message Extension",
+          "description": "Basic Forum Topic Search",
+          "initialRun": false,
+          "parameters": [
+            {
+              "name": "parameter",
+              "description": "Search Basic Forum Topics",
+              "title": "Parameter"
+            }
+          ],
+          "type": "query"
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": [
+    "teams-forum.herokuapp.com"
+  ],
+  "showLoadingIndicator": false,
+  "webApplicationInfo": {
+    "id": "6913e7e3-8d06-4abf-b619-5e4f7a5543a3",
+    "resource": "api://teams-forum.herokuapp.com/6913e7e3-8d06-4abf-b619-5e4f7a5543a3"
+  }
+}

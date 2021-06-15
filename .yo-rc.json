@@ -1,0 +1,9 @@
+{
+  "generator-teams": {
+    "promptValues": {
+      "developer": "LT"
+    },
+    "libraryName": "forum",
+    "generator-version": "3.0.3"
+  }
+}

@@ -1,0 +1,25 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.2",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "Microsoft Teams vs Yammer: Which Communications Tool Should You Use?",
+                    "wrap": true,
+                    "weight": "bolder"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "View Microsoft Teams vs Yammer blog post",
+            "url": "https://blog.intlock.com/microsoft-teams-vs-yammer-communications-tool-use/"
+        }
+    ]
+}

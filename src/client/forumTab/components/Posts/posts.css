@@ -1,0 +1,14 @@
+.postsContent {
+	margin: 10px;
+}
+
+.icons {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 20px;
+}
+
+.editIcon {
+	margin-right: 10px;
+	cursor: pointer;
+}
