@@ -5,13 +5,13 @@ user’s personal tab, to a team, chat or meeting. We use Single Sign-On (SS0) t
 Teams. 
 
 
-You can download the package from [here](https://github.com/Ashot72/microsoft-teams-sso-forums/tree/main/package/forums.zip) and upload it to your Teams App Catalog to run the forum.
+You can download the package from [here](https://github.com/Ashot72/microsoft-teams-sso-forums/tree/main/package/forum.zip) and upload it to your Teams App Catalog to run the forum.
 
 To get started.
 ```
        Clone the repository
 
-       git https://github.com/Ashot72/microsoft-teams-sso-forums
+       git clone https://github.com/Ashot72/microsoft-teams-sso-forums
        cd microsoft-teams-sso-forums
 
        # installs dependencies
